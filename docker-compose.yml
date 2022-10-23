@@ -1,0 +1,9 @@
+# https://medium.com/analytics-vidhya/how-to-understand-building-images-with-docker-compose-24cbdbc0641f
+
+version: '3'
+services:
+  app:
+    image: sakoes/cpter:latest
+    build: .
+    ports:
+      - "80:80"

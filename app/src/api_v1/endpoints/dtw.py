@@ -5,8 +5,10 @@ DTW docs -> https://dynamictimewarping.github.io/py-api/html/api/dtw.dtw.html#dt
 from fastapi import APIRouter
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
-from app.schemas.dtw import DtwInput
 import dtw
+
+from app.schemas.dtw import DtwInput
+
 
 dtw_api = APIRouter(prefix="/dtw", tags=["dtw"])
 
