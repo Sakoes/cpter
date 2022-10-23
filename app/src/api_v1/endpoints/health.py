@@ -1,12 +1,10 @@
 from fastapi import APIRouter
 
+health_api = APIRouter(prefix="/health", tags=["health"])
 
-router = APIRouter()
-
-
-@router.get("/")
-def read_items():
+@health_api.get("/")
+def get_health():
     """
     Retrieve items.
     """
-    return "This is the health endpoint"
+    return {"This is the health endpoint"}
