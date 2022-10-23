@@ -1,6 +1,10 @@
 # CPTER
 Tool to help analyse cpt data
 
+```
+127.0.0.1:80/docs
+```
+
 ## Fast api commands
 ```
 $ uvicorn app.main:app --reload
