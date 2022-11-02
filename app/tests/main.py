@@ -1,7 +1,9 @@
+from re import A
 from turtle import distance
 import numpy as np
 import dtw
-import matplotlib.pyplot as plt;
+import matplotlib.pyplot as plt
+
 
 input_X = [1,2,3,4,5]
 input_y = [1,2,3,4,5]
@@ -16,5 +18,5 @@ reference = np.cos(idx)
 alignment = dtw.dtw(input_X, input_y)
 print(getattr(alignment,"distance"))
 
-""" plt.plot(alignment.index1, alignment.index2)     
-plt.show() """
+print("stop") 
+

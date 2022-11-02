@@ -5,19 +5,20 @@ DTW docs -> https://dynamictimewarping.github.io/py-api/html/api/dtw.dtw.html#dt
 from fastapi import APIRouter
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
-import dtw
+from dtw import *
+import json
 
-from app.schemas.dtw import DtwInput
+from app.schemas.dtw import DtwInput, DtwOutput
 
 
 dtw_api = APIRouter(prefix="/dtw", tags=["dtw"])
 
-@dtw_api.post("/a")
+@dtw_api.post("/", response_model=DtwOutput)
 def exec_dtw(input: DtwInput):
-    alignment = dtw.dtw(x=input.x, y=input.y, open_begin=input.open_end, open_end=input.open_end)
-    
-    json_compatible_item_data = jsonable_encoder(alignment)
-    return JSONResponse(content=json_compatible_item_data)
+    alignment: DTW = dtw(x=input.x, y=input.y)
+    return alignment
+    """ json_compatible_item_data = jsonable_encoder(alignment)
+    return JSONResponse(content=json_compatible_item_data) """
 
 
 @dtw_api.post("/b")

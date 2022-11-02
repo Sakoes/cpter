@@ -10,6 +10,13 @@ Tool to help analyse cpt data
 $ uvicorn app.main:app --reload
 ```
 ## Docker
+
+Final docker image is important. Difference between:
+- Python
+- Pyhton-lite
+- Python-fastapi
+Check https://testdriven.io/blog/fastapi-docker-traefik/
+
 ```
 $ docker build . -t cpter
 
@@ -25,4 +32,7 @@ $ docker logs cpter
 $ docker-compose build
 
 $ docker-compose up
+```
+```
+$ docker-compose up -d --build cpter
 ```

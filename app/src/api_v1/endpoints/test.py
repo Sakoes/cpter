@@ -1,5 +1,8 @@
 from fastapi import APIRouter
 
+from app.schemas.dtw import DtwInput
+import dtw
+
 test_api = APIRouter(prefix="/test", tags=["test"])
 
 @test_api.get("/")
@@ -16,3 +19,11 @@ def post_var(input):
 @test_api.post("/post_array_test")
 def post_array(input: list[float]):
     return input
+
+@test_api.post("/post_return")
+def post_return(input: DtwInput):
+    return DtwInput
+
+@test_api.post("/post_return_dtw")
+def post_return_dtw(input: DtwInput):
+    return DtwInput
