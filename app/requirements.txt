@@ -1,7 +1,12 @@
-fastapi
+fastapi <=0.81.0,>=0.65.2
 uvicorn
-sqlalchemy
-databases
+sqlalchemy == 1.4.22
+databases ==0.6.0
+pydantic ==1.9.1
+alembic
 asyncpg
 psycopg2-binary
-dtw-python
+#dtw-python
+python-dotenv >= 0.21.0
+#authx
+tenacity

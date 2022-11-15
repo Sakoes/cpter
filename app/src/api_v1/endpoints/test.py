@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
 from app.schemas.dtw import DtwInput
-import dtw
+
 
 test_api = APIRouter(prefix="/test", tags=["test"])
 

@@ -1,27 +1,35 @@
 from pydantic import BaseModel
 from typing import List
 
-
-class ProefInput(BaseModel):
+class ProefBase(BaseModel):
     description: str
-    xCor: str
-    yCor: str
-    z_para: float
-    conus: List[float]
+    xCor: float
+    yCor: float
+    zCor: float
+
+class ProefCreate(ProefBase):
+    description: str
+    xCor: float
+    yCor: float
+    zCor: float
+    """ conus: List[float]
     kleef: List[float]
     time: List[float]
     depth: List[float]
-    tags: List[str]
+    tags: List[str] """
     
+class ProefUpdate(ProefBase):
+    description: str
     
-class ProefOutput(BaseModel):
+class ProefDB(ProefBase):
     id: int
     description: str
-    xCor: str
-    yCor: str
-    z_para: float
-    conus: List[float]
-    kleef: List[float]
-    time: List[float]
-    depth: List[float]
-    tags: List[str]
+    xCor: float
+    yCor: float
+    zCor: float
+    
+    class Config:
+        orm_mode = True
+        
+class ProefOutput(ProefBase):
+    pass

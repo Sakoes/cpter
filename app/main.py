@@ -2,8 +2,7 @@ from fastapi import FastAPI
 
 from app.src.api_v1.api import api_router
 from app.core.config import settings
-from app.db.session import database
-from app.models.proef import Proef
+#from app.db.session import database
 
 app = FastAPI(
     title=settings.PROJECT_NAME, openapi_url=f"{settings.API_V1_STR}/openapi.json"
@@ -11,16 +10,23 @@ app = FastAPI(
 
 app.include_router(api_router, prefix=settings.API_V1_STR)
 
+# DB tutorial
+# https://testdriven.io/blog/fastapi-docker-traefik/
 
 @app.on_event("startup")
 async def startup():
-    if not database.is_connected:
-        await database.connect()
+    pass
+    #if not database.is_connected:
+        #await database.connect()
     # create a dummy entry
-    await Proef.objects.get_or_create(description="test description")
+    #proef_in = ProefInput(description="test0711", xCor="5", yCor="6", zCor=7)
+    #proef = crud_proef.proef.test_proef_CRUD(db=database, obj_in=proef_in)
+    
+    
 
 
 @app.on_event("shutdown")
 async def shutdown():
-    if database.is_connected:
-        await database.disconnect()
+    pass
+    #if database.is_connected:
+        #await database.disconnect()
