@@ -10,3 +10,4 @@ psycopg2-binary
 python-dotenv >= 0.21.0
 #authx
 tenacity
+fastapi-crudrouter

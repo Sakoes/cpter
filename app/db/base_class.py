@@ -2,8 +2,8 @@ from typing import Any, Dict
 from sqlalchemy.ext.declarative import as_declarative, declared_attr, declarative_base
 
 # Niet zeker of deze lijnen noodzakelijk zijn
-Base = declarative_base()
-metadata = Base.metadata
+#Base = declarative_base()
+#metadata = Base.metadata
 
 @as_declarative()
 class Base:

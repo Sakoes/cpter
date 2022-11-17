@@ -1,0 +1,9 @@
+FROM tiangolo/uvicorn-gunicorn:python3.9-slim
+
+WORKDIR /app/
+
+COPY ./app /app
+
+RUN pip3 install --no-cache-dir --upgrade -r /app/requirements.txt
+
+ENV PYTHONPATH=/app

@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 
 from app.crud import crud_proef
 from app.schemas.proef import ProefCreate
-from app import deps
+from app.src import deps
 
 proef_api = APIRouter(prefix="/proeven", tags=["proef"])
 

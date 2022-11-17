@@ -1,11 +1,14 @@
 # https://medium.com/analytics-vidhya/how-to-understand-building-images-with-docker-compose-24cbdbc0641f
 
-version: '3'
+version: '3.8'
 services:
   backend:
-    image: sakoes/cpter:latest
-    build: .
-    command: bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; uvicorn app.main:app --host 0.0.0.0 --port 80 --reload'
+    #image: sakoes/cpter:latest
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    #command: bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; uvicorn app.main:app --host 0.0.0.0 --port 80 --reload'
+    command: uvicorn app.main:app --host 0.0.0.0 --port 80 --reload
     ports:
       - "80:80"
     volumes:
@@ -20,7 +23,7 @@ services:
   db:
     image: postgres:13-alpine
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - postgres_data_dev:/var/lib/postgresql/data/
     expose:
       - 5432
     environment:
@@ -40,4 +43,4 @@ services:
       - db
 
 volumes:
-  postgres_data:
+  postgres_data_dev:

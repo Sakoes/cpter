@@ -28,6 +28,7 @@ $ docker logs cpter
 ```
 
 ## Docker-compose
+### General
 ```
 $ docker-compose build
 
@@ -35,6 +36,15 @@ $ docker-compose up
 ```
 ```
 $ docker-compose up -d --build cpter
+```
+### For dev & prod
+```
+# dev
+$ docker-compose -f docker-compose.dev.yml up
+```
+```
+# prod
+$ docker-compose -f docker-compose.prod.yml up
 ```
 ## Postgresql
 ```
